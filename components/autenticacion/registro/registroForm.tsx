@@ -6,11 +6,14 @@ import ButtonLogin from './botonRegistro';
 
 export default function LoginForm() {
   const [nombre, setNombre] = useState('');
+  const [segundoNombre, setSegundoNombre] = useState('');
   const [apellido, setApellido] = useState('');
+  const [apellidoMaterno, setApellidoMaterno] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [telefono, setTelefono] = useState('');
   const [direccion, setDireccion] = useState('');
+  const [descripcion, setDescripcion] = useState('');
   const [documentoIdentidad, setDocumentoIdentidad] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -29,11 +32,14 @@ export default function LoginForm() {
         },
         body: JSON.stringify({
           nombre,
+          segundoNombre,
           apellido,
+          apellidoMaterno,
           correo: email,
           password,
           telefono,
           direccion,
+          descripcion,
           documento_identidad: documentoIdentidad,
         }),
       });
@@ -78,8 +84,21 @@ export default function LoginForm() {
         </div>
 
         <div>
+          <label htmlFor="segundoNombre" className="block text-sm font-medium text-blue-700">
+            Segundo Nombre
+          </label>
+          <input
+            id="segundoNombre"
+            type="text"
+            value={segundoNombre}
+            onChange={(e) => setSegundoNombre(e.target.value)}
+            className="mt-1 block w-full px-4 py-1 border border-blue-200 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+
+        <div>
           <label htmlFor="apellido" className="block text-sm font-medium text-blue-700">
-            Apellido
+            Apellido Paterno
           </label>
           <input
             id="apellido"
@@ -88,6 +107,19 @@ export default function LoginForm() {
             onChange={(e) => setApellido(e.target.value)}
             className="mt-1 block w-full px-4 py-1 border border-blue-200 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
             required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="apellidoMaterno" className="block text-sm font-medium text-blue-700">
+            Apellido Materno
+          </label>
+          <input
+            id="apellidoMaterno"
+            type="text"
+            value={apellidoMaterno}
+            onChange={(e) => setApellidoMaterno(e.target.value)}
+            className="mt-1 block w-full px-4 py-1 border border-blue-200 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
 
@@ -141,6 +173,19 @@ export default function LoginForm() {
             type="text"
             value={direccion}
             onChange={(e) => setDireccion(e.target.value)}
+            className="mt-1 block w-full px-4 py-1 border border-blue-200 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="descripcion" className="block text-sm font-medium text-blue-700">
+            Descripción
+          </label>
+          <input
+            id="descripcion"
+            type="text"
+            value={descripcion}
+            onChange={(e) => setDescripcion(e.target.value)}
             className="mt-1 block w-full px-4 py-1 border border-blue-200 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
