@@ -35,9 +35,9 @@ export const EntradaEncomienda = () => {
           className={`text-center mb-10 transition-all duration-700 ${mounted ? "animate-fadeIn" : "opacity-0"
             }`}
         >
-          <h2 className="text-3xl sm:text-5xl font-bold leading-tight text-yellow-400">
+          <h2 className="text-3xl sm:text-5xl font-bold leading-tight text-blue-800">
             BUSCA Y CONSULTA EL <br />
-            <span className="text-amber-600">ESTADO</span>
+            <span className="text-blue-600">ESTADO</span>
             <br />
             DE TU ENCOMIENDA
           </h2>
@@ -52,7 +52,7 @@ export const EntradaEncomienda = () => {
             <input
               type="search"
               id="codigo-encomienda"
-              className="flex-1 p-4 pl-10 text-base text-gray-700 border border-gray-300 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-600 rounded-l-lg"
+              className="flex-1 p-4 pl-10 text-base text-gray-700 border border-gray-300 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-l-lg"
               placeholder="Ingresa el código de tu encomienda"
               required
               value={searchValue}
@@ -75,7 +75,7 @@ export const EntradaEncomienda = () => {
             </div>
             <button
               type="submit"
-              className="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-6 transition duration-200 rounded-r-lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 transition duration-200 rounded-r-lg"
             >
               Buscar
             </button>
@@ -103,7 +103,7 @@ export const EntradaEncomienda = () => {
           {searchPressed && estadoEncomienda && (
             <div className="space-y-10 transition-all duration-700 animate-pop">
               <EstadoDePedidoRecomendado status={estadoEncomienda} />
-              <p className="text-amber-600 text-lg font-medium text-center md:text-left">
+              <p className="text-blue-600 text-lg font-medium text-center md:text-left">
                 Tu pedido se encuentra en tránsito y será entregado pronto.
               </p>
             </div>

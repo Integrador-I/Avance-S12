@@ -116,19 +116,19 @@ export const Paquetes = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full max-w-7xl px-4 py-6">
-      <div className="text-center mb-6">
-        <h1 className="text-4xl text-amber-600 font-bold mb-2">
+    <div className="w-full max-w-7xl mx-auto">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl text-blue-800 font-bold mb-2">
           ¿Qué tipo de producto deseas enviar?
-        </h1>
-        <p className="font-bold text-[#838383]">Elige un paquete</p>
+        </h2>
+        <p className="text-lg text-blue-700">Elige un paquete</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-        <div className="p-5 bg-white text-black rounded-[20px] overflow-hidden flex flex-col shadow-md">
-          <h3 className="font-light opacity-90">Elija el paquete</h3>
-          <h2 className="font-bold">Producto a enviar</h2>
-          <h2 className="font-bold">{paquetes[indiceActual].talla}</h2>
+        <div className="p-6 bg-white text-gray-800 rounded-xl overflow-hidden flex flex-col shadow-lg border border-blue-100">
+          <h3 className="text-blue-700 font-semibold mb-2">Elija el paquete</h3>
+          <h2 className="text-blue-800 font-bold text-xl mb-1">Producto a enviar</h2>
+          <h2 className="text-blue-600 font-bold text-lg">{paquetes[indiceActual].talla}</h2>
           <div
             className="mt-4 opacity-90"
             dangerouslySetInnerHTML={{ __html: paquetes[indiceActual].detalle }}
@@ -143,12 +143,12 @@ export const Paquetes = () => {
           <BotonPaquetes onClick={CambiarPaquete} />
         </div>
 
-        <div className="p-5 bg-white text-black rounded-[20px] overflow-hidden flex flex-col shadow-md">
-          <h3 className="font-light opacity-90">¿Quién realiza el envío?</h3>
-          <div className="mt-4 opacity-90 space-y-4">
+        <div className="p-6 bg-white text-gray-800 rounded-xl overflow-hidden flex flex-col shadow-lg border border-blue-100">
+          <h3 className="text-blue-700 font-semibold mb-4">¿Quién realiza el envío?</h3>
+          <div className="space-y-4">
             {camposRemitente.map(({ label, key, type }) => (
               <div key={key}>
-                <strong>{label}</strong>
+                <label className="block text-sm font-medium text-gray-800 mb-1">{label}</label>
                 <input
                   type={type}
                   placeholder={label}
@@ -159,16 +159,16 @@ export const Paquetes = () => {
                       [key]: e.target.value
                     })
                   }
-                  className="w-full p-2 border rounded mt-1"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
                 />
               </div>
             ))}
 
             {/* Selector de tipo de paquete */}
             <div>
-              <strong>Tipo de paquete</strong>
+              <label className="block text-sm font-medium text-gray-800 mb-1">Tipo de paquete</label>
               <select
-                className="w-full p-2 border rounded mt-1"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
                 value={tipoPaquete}
                 onChange={(e) => {
                   const nuevoTipo = e.target.value;
@@ -187,12 +187,12 @@ export const Paquetes = () => {
           </div>
         </div>
 
-        <div className="p-5 bg-white text-black rounded-[20px] overflow-hidden flex flex-col shadow-md">
-          <h3 className="font-light opacity-90">¿Quién recibe el envío?</h3>
-          <div className="mt-4 opacity-90 space-y-4">
+        <div className="p-6 bg-white text-gray-800 rounded-xl overflow-hidden flex flex-col shadow-lg border border-blue-100">
+          <h3 className="text-blue-700 font-semibold mb-4">¿Quién recibe el envío?</h3>
+          <div className="space-y-4">
             {camposDestinatario.map(({ label, key, type }) => (
               <div key={key}>
-                <strong>{label}</strong>
+                <label className="block text-sm font-medium text-gray-800 mb-1">{label}</label>
                 <input
                   type={type}
                   placeholder={label}
@@ -203,21 +203,21 @@ export const Paquetes = () => {
                       [key]: e.target.value
                     })
                   }
-                  className="w-full p-2 border rounded mt-1"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
                 />
               </div>
             ))}
 
             <button
               onClick={handleSubmit}
-              className="w-full bg-[#3b5998] text-white py-3 px-4 rounded-[10px] text-base font-bold transition-all duration-200 hover:scale-[1.02]"
+              className="w-full bg-blue-600 text-white py-3 px-4 rounded-md text-base font-bold transition-colors hover:bg-blue-700"
             >
               Continuar
             </button>
 
             <div
               id="registroMensaje"
-              className="hidden mt-4 font-bold text-white text-center fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#3b5998] py-5 px-10 rounded-[10px] shadow-[0_0_20px_rgba(0,0,0,0.3)] text-xl z-[999] w-auto min-w-[250px] max-w-[500px]"
+              className="hidden mt-4 font-bold text-white text-center fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 py-5 px-10 rounded-md shadow-[0_0_20px_rgba(0,0,0,0.3)] text-xl z-[999] w-auto min-w-[250px] max-w-[500px]"
             >
               {mensajeCodigo || "Se ha registrado correctamente"}
             </div>

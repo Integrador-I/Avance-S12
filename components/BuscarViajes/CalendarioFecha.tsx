@@ -27,14 +27,14 @@ export function CalendarioFecha({
         <Button
           variant="outline"
           className={cn(
-            "w-[220px] h-12 justify-start rounded-md px-4 text-left font-normal border-none border-gray-300 bg-white hover:bg-gray-50 focus:outline-none focus:ring-0 focus:ring-offset-0 shadow-sm",
+            "w-[220px] h-12 justify-start rounded-md px-4 text-left font-normal border border-blue-200 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm",
             !date && "text-muted-foreground"
           )}
         >
-          <CalendarIcon className="mr-2 h-4 w-4 text-gray-500" />
+          <CalendarIcon className="mr-2 h-4 w-4 text-blue-600" />
           <div className="flex flex-col text-left">
-            <span className="text-xs text-gray-500">{label}</span>
-            <span className="text-sm font-semibold">
+            <span className="text-xs text-blue-700">{label}</span>
+            <span className="text-sm font-semibold text-gray-800">
               {optional && !date
                 ? "* Opcional"
                 : format(date ?? new Date(), "d MMM yyyy", { locale: es })}
@@ -42,7 +42,7 @@ export function CalendarioFecha({
           </div>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0 mt-2 border border-gray-200 bg-white rounded-md shadow-lg">
+      <PopoverContent className="w-auto p-0 mt-2 border border-blue-200 bg-white rounded-md shadow-lg">
         <Calendar
           mode="single"
           selected={date}
